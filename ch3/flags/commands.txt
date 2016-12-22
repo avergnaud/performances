@@ -1,0 +1,21 @@
+/home/ubuntu>jcmd 4451 VM.flags
+4451:
+-XX:CICompilerCount=3 -XX:InitialHeapSize=130023424 -XX:MaxHeapSize=2074083328 -XX:MaxNewSize=691011584 -XX:MinHeapDeltaBytes=524288 -XX:NewSize=42991616 -XX:OldSize=87031808 -XX:+UseCompressedClassPointers -XX:+UseCompressedOops -XX:+UseParallelGC 
+
+/home/ubuntu>jcmd 4451 VM.version
+4451:
+OpenJDK 64-Bit Server VM version 25.91-b14
+JDK 8.0_91
+
+
+
+
+
+
+
+/home/ubuntu/dev/git/avergnaud/performances>java -XX:+PrintFlagsFinal -version
+
+  {product}
+     bool UseParNewGC                               = false                               {product}
+     bool UseParallelGC                            := true 
+
