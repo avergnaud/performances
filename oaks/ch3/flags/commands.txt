@@ -7,15 +7,9 @@
 OpenJDK 64-Bit Server VM version 25.91-b14
 JDK 8.0_91
 
-
-
-
-
-
-
 /home/ubuntu/dev/git/avergnaud/performances>java -XX:+PrintFlagsFinal -version
-
   {product}
      bool UseParNewGC                               = false                               {product}
      bool UseParallelGC                            := true 
+The colon (:) indicates that a non-default value is in use for the flag UseParallelGC
 
