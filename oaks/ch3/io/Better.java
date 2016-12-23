@@ -1,8 +1,8 @@
-package ch3.io;
+package oaks.ch3.io;
 
 import java.io.*;
 
-/**/
+/* */
 public class Better {
   public static void main(String... args) throws IOException {
 

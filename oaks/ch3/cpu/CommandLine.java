@@ -1,10 +1,10 @@
-package ch3.cpu;
+package oaks.ch3.cpu;
 
 import static java.lang.System.out;
 import java.io.Console;
 import ch3.cpu.cpurunqueue.*;
 
-/**/
+/* */
 public class CommandLine {
   public static void main(String... args) {
     /* check if Console is available */

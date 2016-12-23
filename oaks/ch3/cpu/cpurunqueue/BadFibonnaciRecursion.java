@@ -1,10 +1,10 @@
-package ch3.cpu.cpurunqueue;
+package oaks.ch3.cpu.cpurunqueue;
 
 import static java.lang.System.out;
 import java.util.*;
 import java.util.concurrent.Callable;
 
-/**/
+
 public class BadFibonnaciRecursion implements Callable<Long> {
   public Long call() {
     long l = new Random().nextInt(40);
