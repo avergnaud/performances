@@ -2,5 +2,6 @@
 
 - Java performance - the definitive guide. Scott Oaks
 - Java EE 7 Performance Tuning and Optimization. Osama Oransa
- > mes propres tests issus de https://github.com/wildfly/quickstart
 - Java concurrency in practice. Brian Goetz
+
++ tests issus de https://github.com/wildfly/quickstart
