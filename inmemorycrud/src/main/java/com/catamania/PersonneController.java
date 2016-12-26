@@ -28,7 +28,7 @@ import com.catamania.crud.*;
 import java.util.*;
 
 /**
- * A simple REST service using crudService 
+ * A simple REST service using crudService
  *
  */
 
@@ -36,6 +36,16 @@ import java.util.*;
 public class PersonneController {
     @Inject
     CRUDService crudService;
+
+    @Inject
+    DBService dbService;
+
+    @GET
+    @Path("/test")
+    @Produces({ "application/json" })
+    public boolean test() {
+      return dbService.testDB();
+    }
 
     @GET
     @Path("/personnes")
