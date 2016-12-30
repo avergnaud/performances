@@ -8,7 +8,7 @@ import java.util.*;
 /**
  * A simple REST service using crudService
  */
-@Path("/")
+@Path("/crud")
 public class PersonneController {
     @Inject
     CRUDService crudService;
@@ -43,4 +43,12 @@ public class PersonneController {
      {
        crudService.SupprimePersonne(id);
      }
+
+     @DELETE
+     @Path("/personne")
+     @Produces({ "application/json" })
+      public void supprime()
+      {
+        crudService.SupprimePersonne();
+      }
 }

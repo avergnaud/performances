@@ -87,7 +87,7 @@ public Personne metAJourPersonne(Personne personne)
                 return personne;
 }
 
-/* supprime une personne */
+/* supprime une personne par son id */
 public void SupprimePersonne(int id)
 {
         Optional<Connection> oc = dbService.getConnection();
@@ -100,6 +100,23 @@ public void SupprimePersonne(int id)
         PreparedStatement ps = connection.prepareStatement(deleteStatement)) {
                         ps.setInt(1,id);
                         int affectedRows = ps.executeUpdate();
+                } catch(java.sql.SQLException e) {
+                  e.printStackTrace();
+                }
+}
+
+/* supprime une personne au hasard */
+public void SupprimePersonne()
+{
+        Optional<Connection> oc = dbService.getConnection();
+        if(!oc.isPresent()) {
+                out.println("SupprimePersonne oc.isEmpty");
+                return ;
+        }
+        try (
+        Connection connection = oc.get();
+        Statement stmt = connection.createStatement();) {
+                        int affectedRows = stmt.executeUpdate("DELETE FROM Persons LIMIT 1");
                 } catch(java.sql.SQLException e) {
                   e.printStackTrace();
                 }
