@@ -2,7 +2,7 @@ package com.catamania;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
-import com.catamania.crud.*;
+import com.catamania.jpa.*;
 import java.util.*;
 
 /**
@@ -35,14 +35,6 @@ public class PersonneController {
      {
       return crudService.metAJourPersonne(country);
     }
-
-    @DELETE
-    @Path("/personne/{id}")
-    @Produces({ "application/json" })
-     public void supprime(@PathParam("id") int id)
-     {
-       crudService.supprimePersonne(id);
-     }
 
      @DELETE
      @Path("/personne")

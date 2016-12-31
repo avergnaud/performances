@@ -88,7 +88,7 @@ public Personne metAJourPersonne(Personne personne)
 }
 
 /* supprime une personne par son id */
-public void SupprimePersonne(int id)
+public void supprimePersonne(int id)
 {
         Optional<Connection> oc = dbService.getConnection();
         if(!oc.isPresent()) {
@@ -106,7 +106,7 @@ public void SupprimePersonne(int id)
 }
 
 /* supprime une personne au hasard */
-public void SupprimePersonne()
+public void supprimePersonne()
 {
         Optional<Connection> oc = dbService.getConnection();
         if(!oc.isPresent()) {
