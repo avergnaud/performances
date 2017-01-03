@@ -13,8 +13,7 @@
 		<class>com.catamania.jpa.Personne</class>
 
 		<properties>
-			<property name="hibernate.hbm2ddl.auto" value="validate"/>
-			<property name = "hibernate.show_sql" value = "true" /><!-- to monitor single requests -->
+			<property name="hibernate.hbm2ddl.auto" value="create-drop"/>
 		</properties>
 	</persistence-unit>
 

@@ -1,7 +1,5 @@
-études basées sur les lectures suivantes :
+études basées sur :
 
 - Java performance - the definitive guide. Scott Oaks
-- Java EE 7 Performance Tuning and Optimization. Osama Oransa
-- Java concurrency in practice. Brian Goetz
 
 + tests issus de https://github.com/wildfly/quickstart

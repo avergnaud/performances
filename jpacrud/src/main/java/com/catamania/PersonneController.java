@@ -2,7 +2,7 @@ package com.catamania;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
-import com.catamania.crud.*;
+import com.catamania.jpa.*;
 import java.util.*;
 
 /**
@@ -23,9 +23,9 @@ public class PersonneController {
     @POST
     @Path("/personne")
     @Produces({ "application/json" })
-     public Personne ajoute(Personne country)
+     public int ajoute(Personne personne)
      {
-      return crudService.ajoutePersonne(country);
+      return crudService.ajoutePersonne(personne);
      }
 
      @PUT

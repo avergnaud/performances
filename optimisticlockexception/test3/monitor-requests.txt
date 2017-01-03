@@ -1,0 +1,15 @@
+persistence xml :
+<property name = "hibernate.show_sql" value = "true" /><!-- to monitor single requests -->
+
+1 post :
+{
+"prenom":"Charles",
+"nom":"Henri"
+}
+
+  [stdout] (default task-22) Hibernate: insert into Persons (nom, prenom, ID) values (?, ?, ?)
+
+
+1 delete : http://localhost:8080/optimisticlockexception/rest/crud/personne
+  [stdout] (default task-15) Hibernate: select personne0_.ID as ID1_0_, personne0_.nom as nom2_0_, personne0_.prenom as prenom3_0_ from Persons personne0_ limit ?
+  [stdout] (default task-15) Hibernate: delete from Persons where ID=?

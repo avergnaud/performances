@@ -7,7 +7,6 @@ import java.sql.*;
 import java.util.*;
 import javax.persistence.*;
 import javax.transaction.*;
-import javax.ejb.*;
 
 /*
    Uses Container Managed EntityManager
@@ -26,10 +25,11 @@ public List<Personne> getAllPersonnes()
 
 /* insert une personne en base */
 @Transactional
-public Personne ajoutePersonne(Personne personne)
+public int ajoutePersonne(Personne personne)
 {
         manager.persist(personne);
-        return personne;
+        manager.flush();
+        return personne.getId();
 }
 
 /* update une personne */
@@ -45,19 +45,13 @@ public Personne metAJourPersonne(Personne input)
         return personne;
 }
 
-/* supprime une personne
-   In JPA, to remove an entity, the entity itself must be managed, meaning that it is present in the persistence context. This means that the calling application should have already loaded or accessed the entity and is now issuing a command to remove it
- */
- @Transactional
- @TransactionAttribute(TransactionAttributeType.REQUIRED)/* inutile */
-public void supprimePersonne()
+/* supprime une personne par son id */
+@Transactional
+public void supprimePersonne(int id)
 {
-        List<Personne> personnes = manager.createQuery("SELECT p FROM Personne p", Personne.class )
-                                   .setMaxResults(1)
-                                   .getResultList();/* TODO ? SELECT FOR UPDATE ? */
-
-        if(personnes != null && personnes.size() != 0) {
-                manager.remove(personnes.get(0));
+        Personne personne = manager.find(Personne.class,id);
+        if(personne != null) {
+          manager.remove(personne);
         }
 }
 
