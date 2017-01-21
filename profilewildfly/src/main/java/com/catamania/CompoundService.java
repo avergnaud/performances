@@ -27,7 +27,7 @@ public String getfaster(String name) {
   String result = "";
 
 try {
-  ClientRequest request = new ClientRequest("http://localhost:4567/faster/" + name);
+  ClientRequest request = new ClientRequest("http://192.168.0.99:4567/faster/" + name);
   ClientResponse<String> response = request.get(String.class);
   result = response.getEntity();
 } catch(Exception e) {e.printStackTrace();}

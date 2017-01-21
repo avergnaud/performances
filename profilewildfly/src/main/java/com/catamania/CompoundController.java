@@ -27,7 +27,7 @@ public class CompoundController {
      @Produces({ "application/json" })
       public String getfaster(@PathParam("name") String name)
       {
-        for(int i=0;i<5_000;i++) {
+        for(int i=0;i<20;i++) {
           //simulation de bug - appels inutiles
           String tmp = compoundService.getfaster(name);
         }

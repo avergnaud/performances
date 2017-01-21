@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC 
+"-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" 
+"http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+
+	<form-beans>
+		<form-bean name="myHelloWorldForm" type="com.catamania.helloworld.HelloWorldActionForm" />
+
+		<form-bean name="formulaireForm" type="com.catamania.formulaire.FormulaireForm" />
+		
+	</form-beans>
+
+	<action-mappings>
+		<action path="/hello" type="com.catamania.helloworld.HelloWorldAction"
+			name="myHelloWorldForm">
+			<forward name="success" path="/HelloWorld.jsp" />
+		</action>
+
+		<action path="/formulaire" parameter="" input="/index.jsp" scope="request"
+			name="formulaireForm" type="com.catamania.formulaire.FormulaireAction">
+			<forward name="succes" path="/ok/accueil.jsp" redirect="false" />
+			<forward name="echec" path="/index.jsp" redirect="false" />
+		</action>
+
+	</action-mappings>
+
+</struts-config>
