@@ -16,7 +16,7 @@
                 <configuration>
                     <!-- Suite testng xml file to consider for test execution -->
                     <suiteXmlFiles>
-                        <suiteXmlFile>independent-test-testng.xml</suiteXmlFile>
+                        <suiteXmlFile>load-jboss4-test-suite.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>

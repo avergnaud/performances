@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [load TestJboss4]">
+  <test name="load TestJboss4">
+    <classes>
+      <class name="com.catamania.loadtestjboss4.AuthentAndSubmit"/>
+    </classes>
+  </test> <!-- load TestJboss4 -->
+</suite> <!-- Failed suite [load TestJboss4] -->

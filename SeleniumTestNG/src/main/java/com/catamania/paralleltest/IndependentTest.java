@@ -15,7 +15,6 @@ public class IndependentTest
 {
 
 private ChromeDriverService service;
-private WebDriver driver;
 
 
 @BeforeTest
@@ -29,27 +28,26 @@ public void beforeTest() {
                           .build();
                 service.start();
         } catch(IOException e) {e.printStackTrace(); }
-
-        driver = new RemoteWebDriver(service.getUrl(),
-                                     DesiredCapabilities.chrome());
 }
 
 @AfterTest
 public void afterTest() {
-        driver.quit();
         service.stop();
 }
 
-@Test(threadPoolSize = 10, invocationCount = 1)
+@Test(threadPoolSize = 10, invocationCount = 10)
 public void testMethod()
 {
+  WebDriver driver = new RemoteWebDriver(service.getUrl(),
+                               DesiredCapabilities.chrome());
         driver.get("http://www.google.com");
         WebElement searchBox = driver.findElement(By.name("q"));
         searchBox.sendKeys("webdriver");
         searchBox.submit();
-        ExpectedCondition<Boolean> condition = driver -> !driver.getTitle().equals("Google");
+        ExpectedCondition<Boolean> condition = leDriver -> !leDriver.getTitle().equals("Google");
         (new WebDriverWait(driver, 10)).until(condition);
         Assert.assertEquals("webdriver - Recherche Google", driver.getTitle());
+        driver.quit();
 }
 
 

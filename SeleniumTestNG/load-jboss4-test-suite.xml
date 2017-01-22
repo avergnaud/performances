@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="load TestJboss4" >
+  <test name="load TestJboss4">
+    <classes>
+     <class name="com.catamania.loadtestjboss4.AuthentAndSubmit" />
+    </classes>
+  </test>
+</suite>
