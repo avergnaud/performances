@@ -1,23 +1,56 @@
 package com.catamania.paralleltest;
 
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
+import org.testng.Assert;
+import org.openqa.selenium.*;
+import java.io.*;
+import org.openqa.selenium.chrome.ChromeDriverService;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.*;
+
+import static java.lang.System.out;
 
 public class IndependentTest
 {
-    @Test(threadPoolSize = 10, invocationCount = 10, timeOut = 1000)
-    public void testMethod()
-    {
-        Long id = Thread.currentThread().getId();
-        try {
-          Thread.sleep(1000);
-        } catch(InterruptedException e) {
 
-        }
-        System.out.println("Test method executing on thread with id: " + id);
-    }
+private ChromeDriverService service;
+private WebDriver driver;
+
+
+@BeforeTest
+public void beforeTest() {
+        out.println("beforeTest " + service);
+
+        try {
+                service = new ChromeDriverService.Builder()
+                          .usingDriverExecutable(new File("/home/ubuntu/dev/chromedriver"))
+                          .usingAnyFreePort()
+                          .build();
+                service.start();
+        } catch(IOException e) {e.printStackTrace(); }
+
+        driver = new RemoteWebDriver(service.getUrl(),
+                                     DesiredCapabilities.chrome());
+}
+
+@AfterTest
+public void afterTest() {
+        driver.quit();
+        service.stop();
+}
+
+@Test(threadPoolSize = 10, invocationCount = 1)
+public void testMethod()
+{
+        driver.get("http://www.google.com");
+        WebElement searchBox = driver.findElement(By.name("q"));
+        searchBox.sendKeys("webdriver");
+        searchBox.submit();
+        ExpectedCondition<Boolean> condition = driver -> !driver.getTitle().equals("Google");
+        (new WebDriverWait(driver, 10)).until(condition);
+        Assert.assertEquals("webdriver - Recherche Google", driver.getTitle());
+}
+
+
 }
